@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     public float runSpeed = 40f;
     float horizontalMove = 0f;
     bool jump = false;
+    bool dash = false;
     // Start is called before the first frame update
     void Update()
     {
@@ -16,13 +17,17 @@ public class MovementController : MonoBehaviour
         if (Input.GetButtonDown("Jump")){
             jump =  true;
         }
+        else if (Input.GetButtonDown("Fire1")){
+            dash =  true;
+        }
     }
 
     void FixedUpdate()
     {
         //Move
            
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, jump, dash);
         jump = false;
+        dash = false;
     }
 }

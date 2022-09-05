@@ -10,14 +10,21 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 
-	private Animator anim;
+	[SerializeField] private float dashCooldown = 0.5f;
+	[SerializeField] private float verticalDashForce;
+	[SerializeField] private float horizontalDashForce;
+
+	private Animator anim;	
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
-	private Vector3 m_Velocity = Vector3.zero;
+	private Vector2 m_Velocity = Vector2.zero;
+
+	private bool isDashing = false;
+	private float nextDash;
 
 	[Header("Events")]
 	[Space]
@@ -49,6 +56,10 @@ public class CharacterController2D : MonoBehaviour
 		{
 			if (colliders[i].gameObject != gameObject)
 			{
+				//If on ground and after dash cooldown passes, the player can dash again.
+				if (Time.time > nextDash){
+					isDashing = false;
+				}
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
@@ -57,7 +68,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool jump)
+	public void Move(float move, bool jump, bool dash)
 	{
 		anim.SetBool("IsGrounded", m_Grounded);
 		anim.SetBool("IsJumping", jump);
@@ -66,9 +77,9 @@ public class CharacterController2D : MonoBehaviour
 		{
 			
 			// Move the character by finding the target velocity
-			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			Vector2 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
-			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
 			if (move > 0 || move < 0) 
 			{
@@ -92,12 +103,42 @@ public class CharacterController2D : MonoBehaviour
 				Flip();
 			}
 		}
+		
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
 			// Add a vertical force to the player.
 			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			//m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+			Vector2 targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+			// And then smoothing it out and applying it to the character
+			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+
+		}//If the player can dash
+		else if (!isDashing && dash) 
+		{	
+			Debug.Log("Dashing");
+			isDashing =  true;
+			nextDash = Time.time + dashCooldown;
+			Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+			dashDirection = dashDirection.normalized;
+			Vector2 nullDirection = new Vector2(0f,0f);
+			if (dashDirection == nullDirection){
+				if(m_FacingRight){
+					dashDirection =  new Vector2 (1f, 0f);
+				}
+				else{
+					dashDirection =  new Vector2 (-1f, 0f);
+				}
+			}
+			
+			dashDirection = new Vector2 (dashDirection.x * horizontalDashForce, dashDirection.y * verticalDashForce);
+			Debug.Log("Dashing at : " + dashDirection);
+			//NERFAR DASH NO EIXO Y?
+			
+			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, dashDirection, ref m_Velocity, m_MovementSmoothing);
+			//m_Rigidbody2D.AddForce(dashDirection);
 		}
 	}
 
