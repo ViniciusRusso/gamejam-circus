@@ -1,5 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -11,12 +14,12 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 
 	[SerializeField] private float dashCooldown = 0.5f;
-	[SerializeField] private float verticalDashForce;
-	[SerializeField] private float horizontalDashForce;
+	[SerializeField] private float DashForce;
+	[SerializeField] private float dashDistance;
 
 	private Animator anim;	
 
-	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+	const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
@@ -24,7 +27,13 @@ public class CharacterController2D : MonoBehaviour
 	private Vector2 m_Velocity = Vector2.zero;
 
 	private bool isDashing = false;
+	private bool canDoubleJump;
 	private float nextDash;
+	
+
+	[HideInInspector] public int health;
+	[HideInInspector] public bool canBeDamaged = true;
+	[HideInInspector] public PowerUpController puController;
 
 	[Header("Events")]
 	[Space]
@@ -35,13 +44,18 @@ public class CharacterController2D : MonoBehaviour
 	public class BoolEvent : UnityEvent<bool> { }
 
 	private void Awake()
-	{
+	{ 
 		anim = GetComponent<Animator>();
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		puController = GetComponent<PowerUpController>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
 
+	}
+
+	private void Start(){
+		health = 1;
 	}
 
 	private void FixedUpdate()
@@ -59,7 +73,9 @@ public class CharacterController2D : MonoBehaviour
 				//If on ground and after dash cooldown passes, the player can dash again.
 				if (Time.time > nextDash){
 					isDashing = false;
+					anim.SetBool("IsDashing", false);
 				}
+				canDoubleJump = true;
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
@@ -115,29 +131,37 @@ public class CharacterController2D : MonoBehaviour
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-		}//If the player can dash
+		}
+		else if (!m_Grounded && jump && canDoubleJump && puController.cape.activeSelf) //Double Jump
+		{
+			canDoubleJump = false;
+			Vector2 targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);
+			// And then smoothing it out and applying it to the character
+			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+		}
+		//If the player can dash
 		else if (!isDashing && dash) 
 		{	
-			Debug.Log("Dashing");
+			
 			isDashing =  true;
+			anim.SetBool("IsDashing", true);
 			nextDash = Time.time + dashCooldown;
-			Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-			dashDirection = dashDirection.normalized;
-			Vector2 nullDirection = new Vector2(0f,0f);
-			if (dashDirection == nullDirection){
-				if(m_FacingRight){
-					dashDirection =  new Vector2 (1f, 0f);
-				}
-				else{
-					dashDirection =  new Vector2 (-1f, 0f);
-				}
+			//Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+			//dashDirection = dashDirection.normalized;
+			//Vector2 nullDirection = new Vector2(0f,0f);
+			//if (dashDirection == nullDirection){
+			Vector2 dashDirection;
+			if(m_FacingRight){
+				dashDirection =  new Vector2 (1f + dashDistance, 0f);
 			}
+			else{
+				dashDirection =  new Vector2 (-1f - dashDistance, 0f);
+			}
+			//}
 			
-			dashDirection = new Vector2 (dashDirection.x * horizontalDashForce, dashDirection.y * verticalDashForce);
-			Debug.Log("Dashing at : " + dashDirection);
-			//NERFAR DASH NO EIXO Y?
-			
-			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, dashDirection, ref m_Velocity, m_MovementSmoothing);
+			//Debug.Log("Dashing at : " + dashDirection);
+
+			m_Rigidbody2D.velocity = Vector2.Lerp(m_Rigidbody2D.velocity, dashDirection, DashForce * Time.deltaTime);
 			//m_Rigidbody2D.AddForce(dashDirection);
 		}
 	}
@@ -153,4 +177,32 @@ public class CharacterController2D : MonoBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+	public void TakeDamage(){
+		if (puController.balloonUp){
+			puController.balloonUp = false;
+			puController.balloon.SetActive(false);
+			StartCoroutine(Invencibility(1f));
+			StartCoroutine(puController.BalloonCooldown());
+		}
+		else if(canBeDamaged) {
+			//Death
+			Debug.Log("Dead");
+		}
+		
+	}
+
+	private void OnCollisionEnter2D(Collision2D other) {
+		if (other.gameObject.tag == "Enemy"){
+			TakeDamage();
+		}
+		
+	}
+
+	public IEnumerator Invencibility(float timer)
+    {
+		canBeDamaged = false;
+		yield return new WaitForSeconds(timer);
+		canBeDamaged = true;
+    }
 }

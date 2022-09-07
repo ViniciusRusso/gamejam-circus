@@ -10,6 +10,7 @@ public class MovementController : MonoBehaviour
     float horizontalMove = 0f;
     bool jump = false;
     bool dash = false;
+    
     // Start is called before the first frame update
     void Update()
     {
