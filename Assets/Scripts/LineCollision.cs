@@ -59,6 +59,12 @@ public class LineCollision : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player"){
             Debug.Log("Hit! " + transform.parent.name);
+            if(transform.parent.name == "Cartola")
+                lc.BossDamage(0);
+            else if(transform.parent.name == "Mao_bastao")
+                lc.BossDamage(1);
+            else if(transform.parent.name == "Mao_carta")
+                lc.BossDamage(2);
         }
     }
 }

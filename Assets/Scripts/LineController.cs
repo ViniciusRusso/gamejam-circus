@@ -31,46 +31,29 @@ public class LineController : MonoBehaviour
     {
         for (int i = 0; i< lines.Count; i++){
             var currentLine = lines[i];
-            Vector3 ceiling = new Vector3 (obj[i].position.x + 0.1f, height);
+            Vector3 ceiling = new Vector3 (obj[i].position.x + 0.2f, height);
             lines[i].SetPosition(0, ceiling);
             lines[i].SetPosition(1, obj[i].position);
             //Vector3[] positions = new Vector3[lines[i].positionCount];
             //lines[i].GetPositions(positions);
             
         }
-              
-        
     }
 
-    public float GetWidth(float num) {
-        switch (num){
+    public void BossDamage(int piece){
+        switch(piece){
+            case 0:
+                obj[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                obj[0].gameObject.tag = "Map";
+                break;
             case 1:
-                return lr1.startWidth;
-                
+                obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                obj[1].gameObject.tag = "Map";
+                break;
             case 2:
-                return lr2.startWidth;
-                
-            case 3:
-                return lr3.startWidth;
-                
+                obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                obj[2].gameObject.tag = "Map";
+                break;
         }
-        return 0;
-    }
-
-    public Vector3[] GetPositions(float num) {
-        Vector3[] positions = new Vector3[lr1.positionCount];
-        switch (num){
-            case 1:
-                lr1.GetPositions(positions);
-                //Debug.Log(positions[1].ToString());
-                return positions;
-            case 2:
-                lr2.GetPositions(positions);
-                return positions;
-            case 3:
-                lr3.GetPositions(positions);
-                return positions;          
-        }
-        return null;
     }
 }
