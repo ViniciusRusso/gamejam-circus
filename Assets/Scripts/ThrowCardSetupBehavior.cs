@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossIdleBehavior : StateMachineBehaviour
+public class ThrowCardSetupBehavior : StateMachineBehaviour
 {
-    
-    public float idleTime;
-
+    public int CardNumber;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        animator.GetComponent<BossAnimations>().StartTimerCoroutine(idleTime);
+        animator.SetInteger("CardCount", CardNumber);    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

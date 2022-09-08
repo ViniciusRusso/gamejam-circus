@@ -12,21 +12,26 @@ public class CardController : MonoBehaviour
     private Rigidbody2D rb;
 
     private bool bounceCards = false;
+    private Vector3 LastVelocity;
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        //bounceCards = true;
         rb = GetComponent<Rigidbody2D>();
         spriteRender = GetComponent<SpriteRenderer>();
         spriteRender.sprite = RandomCard();
-    }
+        rb.AddForce(t.up * cardVelocity, ForceMode2D.Impulse);
+        //Debug.Log(t.rotation.z); 
+   }
 
     // Update is called once per frame
     void Update()
     {
 
-        rb.AddForce(t.up * cardVelocity, ForceMode2D.Impulse);
+        
+        LastVelocity = rb.velocity;
     }
 
     private Sprite RandomCard()
@@ -39,7 +44,7 @@ public class CardController : MonoBehaviour
     {
         if (bounceCards)
         {
-            Flip();
+            Flip(other);
             bounceCards = false;
         }
         else
@@ -53,8 +58,12 @@ public class CardController : MonoBehaviour
         }
     }
 
-    private void Flip()
+    private void Flip(Collision2D other)
     {
+        
+        var speed = LastVelocity.magnitude;
+        var direction = Vector3.Reflect(LastVelocity.normalized, other.contacts[0].normal);
+        rb.velocity=direction*Mathf.Max(speed, 0f);
         
     }
 }
