@@ -181,8 +181,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Andr\xE9 Kazuo Yasui\nHenrique\nJ\xFAlia Oliveira Pessoa\nM\xE1rio Bozol\xE3o
-    Neto\nMitzrael Albarrassim de Oliveira\nRodrigo\nVin\xEDcius Tadeu Russo\n"
+  m_text: "Andr\xE9 Kazuo Yasui\nHenrique Moura\nJ\xFAlia Oliveira Pessoa\nM\xE1rio
+    Bozol\xE3o Neto\nMitzrael Albarrassim de Oliveira\nRodrigo\nVin\xEDcius Tadeu
+    Russo\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9f94a9473b78304ba56d69e5d7f4bfd, type: 2}
   m_sharedMaterial: {fileID: 4999509886001047546, guid: b9f94a9473b78304ba56d69e5d7f4bfd, type: 2}
