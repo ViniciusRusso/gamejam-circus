@@ -29,8 +29,6 @@ public class CardController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         LastVelocity = rb.velocity;
     }
 
@@ -60,10 +58,11 @@ public class CardController : MonoBehaviour
 
     private void Flip(Collision2D other)
     {
-        
         var speed = LastVelocity.magnitude;
-        var direction = Vector2.Reflect(LastVelocity.normalized, other.contacts[0].normal);
-        //rb.velocity=direction*Mathf.Max(speed, 0f);
-        t.rotation = Quaternion.FromToRotation(t.up, direction);
+        var direction = Vector2.Reflect(t.position, other.contacts[0].normal);
+        //rb.AddForce(direction * cardVelocity, ForceMode2D.Impulse);
+
+        rb.velocity=direction; //*Mathf.Max(speed, 0f);
+        //t.rotation = Quaternion.FromToRotation(t.up, direction);
     }
 }

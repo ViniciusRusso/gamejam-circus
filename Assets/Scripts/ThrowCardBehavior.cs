@@ -38,7 +38,8 @@ public class ThrowCardBehavior : StateMachineBehaviour
             if (animator.GetInteger("NextAttack") == 0){
                 animator.SetInteger("CardCount", animator.GetInteger("CardCount") - 1);
                 hand = animator.gameObject.GetComponent<Transform>().GetChild(1);
-                position = new Vector3 (hand.position.x - 2.3f, hand.position.y - 0.5f, hand.position.z);
+                position = new Vector3 (hand.position.x - 2.3f, hand.position.y, hand.position.z);
+                Debug.Log(position);
                 rotation = Quaternion.Euler(0f, 0f, -270f);
                 animator.GetComponent<BossAnimations>().ThrowCard(position, rotation, false);
             }

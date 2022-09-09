@@ -26,7 +26,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector2 m_Velocity = Vector2.zero;
 
-	private bool isDashing = false;
+	public bool isDashing = false;
 	private bool canDoubleJump;
 	private float nextDash;
 	

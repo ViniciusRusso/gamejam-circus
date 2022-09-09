@@ -2,22 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossIdleBehavior : StateMachineBehaviour
+public class TransitionBehavior : StateMachineBehaviour
 {
-    
-    public float idleTime;
-    
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
-        int num = 3;
-        
-        if (animator.GetBool("CardsDefeated"))
-            num = 2;
-        //animator.SetInteger("NextAttack", animator.GetComponent<BossAnimations>().RandomMode(num));
-        animator.GetComponent<BossAnimations>().StartTimerCoroutine(idleTime);
+        animator.SetBool("IsTriggered", true);    
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
