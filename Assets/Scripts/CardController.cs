@@ -11,8 +11,8 @@ public class CardController : MonoBehaviour
     private SpriteRenderer spriteRender;
     private Rigidbody2D rb;
 
-    private bool bounceCards = false;
-    private Vector3 LastVelocity;
+    public bool bounceCards = false;
+    private Vector2 LastVelocity;
 
 
     // Start is called before the first frame update
@@ -62,8 +62,8 @@ public class CardController : MonoBehaviour
     {
         
         var speed = LastVelocity.magnitude;
-        var direction = Vector3.Reflect(LastVelocity.normalized, other.contacts[0].normal);
-        rb.velocity=direction*Mathf.Max(speed, 0f);
-        
+        var direction = Vector2.Reflect(LastVelocity.normalized, other.contacts[0].normal);
+        //rb.velocity=direction*Mathf.Max(speed, 0f);
+        t.rotation = Quaternion.FromToRotation(t.up, direction);
     }
 }

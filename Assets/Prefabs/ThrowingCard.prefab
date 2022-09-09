@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4904142824884254238}
   m_Layer: 0
   m_Name: ThrowingCard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +106,7 @@ MonoBehaviour:
   - {fileID: 1090499552, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
   cardVelocity: 10
   t: {fileID: 4904142824884254236}
+  bounceCards: 0
 --- !u!50 &4904142824884254237
 Rigidbody2D:
   serializedVersion: 4

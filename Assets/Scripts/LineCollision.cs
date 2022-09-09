@@ -61,9 +61,9 @@ public class LineCollision : MonoBehaviour
             Debug.Log("Hit! " + transform.parent.name);
             if(transform.parent.name == "Cartola")
                 lc.BossDamage(0);
-            else if(transform.parent.name == "Mao_bastao")
-                lc.BossDamage(1);
             else if(transform.parent.name == "Mao_carta")
+                lc.BossDamage(1);
+            else if(transform.parent.name == "Mao_bastao")
                 lc.BossDamage(2);
         }
     }
