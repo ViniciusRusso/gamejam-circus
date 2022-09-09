@@ -6,7 +6,7 @@ public class LineController : MonoBehaviour
 {
     public float height;
     public Transform[] obj;
-    public Transform parts;
+    public Transform boss;
     public GameObject linePrefab;
     public Animator animator;
     LineRenderer lr1; //Hat
@@ -49,18 +49,24 @@ public class LineController : MonoBehaviour
         Vector3 pos;
         switch(piece){
             case 0:
-                pos = lr1.GetPosition(1);
-                obj[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                obj[0].GetComponent<Rigidbody2D>().mass = 10f;
-                obj[0].gameObject.tag = "Map";
-                obj[0].parent = null;
+                //pos = lr1.GetPosition(1);
+                //obj[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                //obj[0].GetComponent<Rigidbody2D>().mass = 10f;
+                //obj[0].gameObject.tag = "Map";
+                //obj[0].parent = null;
+
+                obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                obj[1].parent = boss;
+                obj[2].parent = boss;
+
                 lines.Remove(lr1);
                 Destroy(lr1.gameObject);
                 animator.Rebind();
                 animator.SetBool("StaffDefeated", true);
                 animator.SetBool("CardsDefeated", true);
                 animator.SetBool("HatDefeated", true);
-                obj[0].position = pos;
+                //obj[0].position = pos;
                 break;
             case 1:      
                 pos = lr2.GetPosition(1);
