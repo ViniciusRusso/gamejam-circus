@@ -16,7 +16,7 @@ public class BossIdleBehavior : StateMachineBehaviour
         
         if (animator.GetBool("CardsDefeated"))
             num = 2;
-        //animator.SetInteger("NextAttack", animator.GetComponent<BossAnimations>().RandomMode(num));
+        animator.SetInteger("NextAttack", animator.GetComponent<BossAnimations>().RandomMode(num));
         animator.GetComponent<BossAnimations>().StartTimerCoroutine(idleTime);
     }
 

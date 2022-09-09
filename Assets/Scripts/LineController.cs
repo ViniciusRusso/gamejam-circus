@@ -79,7 +79,6 @@ public class LineController : MonoBehaviour
                 animator.Rebind();
                 animator.SetBool("StaffDefeated", true);
                 animator.SetBool("CardsDefeated", true);
-                Debug.Log(animator.GetBool("CardsDefeated"));
                 obj[1].position = pos;
                 break;
             case 2:
