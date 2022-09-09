@@ -1763,7 +1763,7 @@ MonoBehaviour:
   - {fileID: 813731905}
   - {fileID: 1534926673}
   - {fileID: 1496158698}
-  parts: {fileID: 66797790}
+  boss: {fileID: 1190078478}
   linePrefab: {fileID: 2554648163098010598, guid: a4df21a90e2f92f418f94cfda6851c05, type: 3}
   animator: {fileID: 1190078479}
   lines: []
