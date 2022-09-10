@@ -46,52 +46,59 @@ public class LineController : MonoBehaviour
     }
 
     public void BossDamage(int piece){
-        Vector3 pos;
+        //Vector3 pos;
         switch(piece){
             case 0:
-                //pos = lr1.GetPosition(1);
-                //obj[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                //obj[0].GetComponent<Rigidbody2D>().mass = 10f;
-                //obj[0].gameObject.tag = "Map";
-                //obj[0].parent = null;
+                ////pos = lr1.GetPosition(1);
+                ////obj[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                ////obj[0].GetComponent<Rigidbody2D>().mass = 10f;
+                ////obj[0].gameObject.tag = "Map";
+                ////obj[0].parent = null;
 
-                obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-                obj[1].parent = boss;
-                obj[2].parent = boss;
+                //obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                //obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+                //obj[1].parent = boss;
+                //obj[2].parent = boss;
 
                 lines.Remove(lr1);
                 Destroy(lr1.gameObject);
-                animator.Rebind();
-                animator.SetBool("StaffDefeated", true);
-                animator.SetBool("CardsDefeated", true);
+                //animator.Rebind();
+                //animator.SetBool("StaffDefeated", true);
+                //animator.SetBool("CardsDefeated", true);
                 animator.SetBool("HatDefeated", true);
+                obj[0].GetComponent<PolygonCollider2D>().isTrigger =  true;
+                obj[2].gameObject.SetActive(true);
+                obj[1].gameObject.SetActive(true);
                 //obj[0].position = pos;
                 break;
             case 1:      
-                pos = lr2.GetPosition(1);
-                obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                obj[1].GetComponent<Rigidbody2D>().mass = 10f;
-                obj[1].gameObject.tag = "Map";
-                obj[1].parent = null;
+                //pos = lr2.GetPosition(1);
+                //obj[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                //obj[1].GetComponent<Rigidbody2D>().mass = 10f;
+                //obj[1].gameObject.tag = "Map";
+                //obj[1].parent = null;
                 lines.Remove(lr2);
                 Destroy(lr2.gameObject);
-                animator.Rebind();
-                animator.SetBool("StaffDefeated", true);
+                obj[1].position = new Vector3 (3.83f, -1.56f, 0f);
+                obj[1].gameObject.SetActive(false);
+                //animator.Rebind();
+                //animator.SetBool("StaffDefeated", true);
                 animator.SetBool("CardsDefeated", true);
-                obj[1].position = pos;
+                //obj[1].position = pos;
                 break;
             case 2:
-                pos = lr3.GetPosition(1);
-                obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                obj[2].GetComponent<Rigidbody2D>().mass = 10f;
-                obj[2].gameObject.tag = "Map";
-                obj[2].parent = null;
+                //pos = lr3.GetPosition(1);
+                //obj[2].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                //obj[2].GetComponent<Rigidbody2D>().mass = 10f;
+                //obj[2].gameObject.tag = "Map";
+                //obj[2].parent = null;
                 lines.Remove(lr3);
                 Destroy(lr3.gameObject);
-                animator.Rebind();
+                obj[2].position = new Vector3 (3f, -1.58f, 0f);
+                obj[2].gameObject.SetActive(false);
+                //animator.Rebind();
                 animator.SetBool("StaffDefeated", true);
-                obj[2].position = pos;
+                //obj[2].position = pos;
                 break;
         }
     }
