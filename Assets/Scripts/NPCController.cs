@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public GameObject spriteFeliz;
-    public GameObject spriteTriste;
+    public SpriteRenderer spriteRenderer;
+    public Sprite spriteFeliz;
+    public Sprite spriteTriste;
     public int npc;   
 
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt("level") < npc){
-            spriteFeliz.SetActive(false);
-            spriteTriste.SetActive(true);
+        if(PlayerPrefs.GetInt("Level") < npc){
+            spriteRenderer.sprite = spriteTriste;
         }
         else{
-            spriteFeliz.SetActive(true);
-            spriteTriste.SetActive(false);
+            spriteRenderer.sprite = spriteFeliz;
         }
     }
 
