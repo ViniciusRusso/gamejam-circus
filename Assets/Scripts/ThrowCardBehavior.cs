@@ -26,7 +26,7 @@ public class ThrowCardBehavior : StateMachineBehaviour
                 rotation = Quaternion.Euler(0f, 0f, -200f);
             }
             else {
-                rotation = Quaternion.Euler(0f, 0f, -180f);
+                rotation = Quaternion.Euler(0f, 0f, -170f);
             }
             //Debug.Log(position);
             //animator.GetComponent<BossAnimations>().ThrowCard(position, rotation);
@@ -36,21 +36,28 @@ public class ThrowCardBehavior : StateMachineBehaviour
         else if (animator.GetBool("StaffDefeated") && !animator.GetBool("CardsDefeated"))
         {
             if (animator.GetInteger("NextAttack") == 0){
+
+                float extra;
+                if (animator.GetInteger("CardCount")%2 == 0){
+                    extra = 0f;
+                }
+                else{
+                    extra = 2f;
+                }
                 animator.SetInteger("CardCount", animator.GetInteger("CardCount") - 1);
                 hand = animator.gameObject.GetComponent<Transform>().GetChild(1);
-                position = new Vector3 (hand.position.x - 2.3f, hand.position.y - 0.5f, hand.position.z);
+                position = new Vector3 (hand.position.x - 2.7f, hand.position.y + extra, hand.position.z);
                 rotation = Quaternion.Euler(0f, 0f, -270f);
                 animator.GetComponent<BossAnimations>().ThrowCard(position, rotation, false);
             }
             else if (animator.GetInteger("NextAttack") == 1)
             {
+                
                 animator.SetInteger("CardCount", animator.GetInteger("CardCount") - 1);
                 hand = animator.gameObject.GetComponent<Transform>().GetChild(1);
-                position = new Vector3 (hand.position.x - 2.3f, hand.position.y - 0.5f, hand.position.z);
+                position = new Vector3 (hand.position.x - 2.7f, hand.position.y, hand.position.z);
                 rotation = Quaternion.Euler(0f, 0f, -270f);
-                Vector3 pos2 = position + new Vector3 (0f, 3f, 0f);
-                animator.GetComponent<BossAnimations>().ThrowCard(position, rotation, true);
-                animator.GetComponent<BossAnimations>().ThrowCard(pos2, rotation, true);
+                animator.GetComponent<BossAnimations>().ThrowMultipleCards(1, 2, false, position, rotation);
             }
             else if (animator.GetInteger("NextAttack") == 2){
                 int currentCard =  animator.GetInteger("CardCount");

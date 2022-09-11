@@ -51,7 +51,7 @@ public class BossAnimations : MonoBehaviour
         if (pattern == 1)
             StartCoroutine(MultipleCards(cardNumber, bounce, position, rotation));
         else if (pattern == 2)
-            StartCoroutine(Pattern2MultipleCards(cardNumber, bounce, position, rotation));
+            StartCoroutine(Pattern2MultipleCards(bounce, position, rotation));
     }
 
     public IEnumerator MultipleCards(int number, bool bounce, Vector3 position, Quaternion rotation){
@@ -60,11 +60,10 @@ public class BossAnimations : MonoBehaviour
             yield return new WaitForSeconds(0.4f);
         }
     }
-    public IEnumerator Pattern2MultipleCards(int number, bool bounce, Vector3 position, Quaternion rotation){
-        Vector3 pos = position;
-        for (int i = 0; i< number; i++){
-            ThrowCard(pos, rotation, bounce);
-            yield return new WaitForSeconds(0.5f);
-        }
+    public IEnumerator Pattern2MultipleCards(bool bounce, Vector3 position, Quaternion rotation){
+        Vector3 pos2 = position + new Vector3 (0f, 2.5f, 0f);
+        ThrowCard(pos2, rotation, bounce);
+        yield return new WaitForSeconds(0.25f);
+        ThrowCard(position, rotation, bounce);
     }
 }

@@ -307,6 +307,10 @@ AnimationClip:
       value: {fileID: -649159056, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
     - time: 1.1666666
       value: {fileID: -887144032, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
+    - time: 1.25
+      value: {fileID: -649159056, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
+    - time: 1.3333334
+      value: {fileID: -887144032, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
     attribute: m_Sprite
     path: Cartola
     classID: 212
@@ -383,12 +387,14 @@ AnimationClip:
     - {fileID: -887144032, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
     - {fileID: -649159056, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
     - {fileID: -887144032, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
+    - {fileID: -649159056, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
+    - {fileID: -887144032, guid: ce6854fc738e1d84f86ffab0cfdd299f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.3333334
+    m_StopTime: 1.35
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

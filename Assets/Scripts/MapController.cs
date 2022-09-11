@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class MapController : MonoBehaviour
 {
     public GameObject Player;
+    public GameObject Capa;
+    public GameObject Bolha;
     public Vector2[] PlayerPosition = 
     {
     new Vector2(-8.42f, -4.485f),
@@ -16,13 +17,30 @@ public class MapController : MonoBehaviour
 
     void Awake()
     {
-        Player.transform.position = PlayerPosition[PlayerPrefs.GetInt("Level")];
+        Player.GetComponent<TrailRenderer>().enabled = false;
     }
-
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player.transform.position = PlayerPosition[PlayerPrefs.GetInt("Level")];
+        Player.GetComponent<TrailRenderer>().enabled = true;
+        if(PlayerPrefs.GetInt("Level") >= 1)
+        {
+            Capa.SetActive(true);
+        }
+        else
+        {
+            Capa.SetActive(false);
+        }
+
+        if(PlayerPrefs.GetInt("Level") >= 2)
+        {
+            Bolha.SetActive(true);
+        }
+        else
+        {
+            Bolha.SetActive(false);
+        }
     }
 
     // Update is called once per frame

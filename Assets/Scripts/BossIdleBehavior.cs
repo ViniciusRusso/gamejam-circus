@@ -11,7 +11,9 @@ public class BossIdleBehavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        
         int num = 3;
+        
         if (animator.GetBool("CardsDefeated"))
             num = 2;
         animator.SetInteger("NextAttack", animator.GetComponent<BossAnimations>().RandomMode(num));

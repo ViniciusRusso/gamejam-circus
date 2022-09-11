@@ -7,11 +7,15 @@ public class LineCollision : MonoBehaviour
     private LineController lc;
     private LineRenderer lr;
     private PolygonCollider2D polygonCollider2D;
-    // Start is called before the first frame update
+    private CharacterController2D player;
+    
+    
     List<Vector2> colliderPoints = new List<Vector2>();
+
 
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<CharacterController2D>();
         lc = GameObject.Find("LineController").GetComponent<LineController>();
         lr = GetComponent<LineRenderer>();
         polygonCollider2D = GetComponent<PolygonCollider2D>();
@@ -57,14 +61,16 @@ public class LineCollision : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Player"){
-            Debug.Log("Hit! " + transform.parent.name);
-            if(transform.parent.name == "Cartola")
-                lc.BossDamage(0);
-            else if(transform.parent.name == "Mao_carta")
-                lc.BossDamage(1);
-            else if(transform.parent.name == "Mao_bastao")
-                lc.BossDamage(2);
+        if (player.isDashing){
+            if (other.gameObject.tag == "Player"){
+                Debug.Log("Hit! " + transform.parent.name);
+                if(transform.parent.name == "Cartola")
+                    lc.BossDamage(0);
+                else if(transform.parent.name == "Mao_carta")
+                    lc.BossDamage(1);
+                else if(transform.parent.name == "Mao_bastao")
+                    lc.BossDamage(2);
+            }
         }
     }
 }

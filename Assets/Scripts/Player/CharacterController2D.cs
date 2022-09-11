@@ -26,7 +26,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector2 m_Velocity = Vector2.zero;
 
-	private bool isDashing = false;
+	public bool isDashing = false;
 	private bool canDoubleJump;
 	private float nextDash;
 	
@@ -68,12 +68,16 @@ public class CharacterController2D : MonoBehaviour
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 		for (int i = 0; i < colliders.Length; i++)
 		{
-			if (colliders[i].gameObject != gameObject)
+			if (colliders[i].gameObject.tag == "Map")
 			{
+				m_Grounded = true;
+				if (!wasGrounded)
+					OnLandEvent.Invoke();
 				//If on ground and after dash cooldown passes, the player can dash again.
 				if (Time.time > nextDash){
 					isDashing = false;
-					anim.SetBool("IsDashing", false);
+					anim.SetBool("IsDashingRight", false);
+					anim.SetBool("IsDashingLeft", false);
 				}
 				canDoubleJump = true;
 				m_Grounded = true;
@@ -111,12 +115,14 @@ public class CharacterController2D : MonoBehaviour
 			{
 				// ... flip the player.
 				Flip();
+				anim.SetBool("IsDashingLeft", false);
 			}
 			// Otherwise if the input is moving the player left and the player is facing right...
 			else if (move < 0 && m_FacingRight)
 			{
 				// ... flip the player.
 				Flip();
+				anim.SetBool("IsDashingRight", false);
 			}
 		}
 		
@@ -144,7 +150,6 @@ public class CharacterController2D : MonoBehaviour
 		{	
 			
 			isDashing =  true;
-			anim.SetBool("IsDashing", true);
 			nextDash = Time.time + dashCooldown;
 			//Vector2 dashDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 			//dashDirection = dashDirection.normalized;
@@ -153,9 +158,11 @@ public class CharacterController2D : MonoBehaviour
 			Vector2 dashDirection;
 			if(m_FacingRight){
 				dashDirection =  new Vector2 (1f + dashDistance, 0f);
+				anim.SetBool("IsDashingRight", true);
 			}
 			else{
 				dashDirection =  new Vector2 (-1f - dashDistance, 0f);
+				anim.SetBool("IsDashingLeft", true);
 			}
 			//}
 			
