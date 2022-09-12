@@ -8,6 +8,7 @@ TagManager:
   - Map
   - Rope
   - Balloon
+  - Music
   layers:
   - Default
   - TransparentFX

@@ -3,7 +3,11 @@ guid: c865ab0a65cac76429bf8ac2e5bf6456
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - magician: {fileID: 8300000, guid: ca35fab69bd689e4b947ce9ebc89a4d2, type: 3}
+  - clown: {fileID: 8300000, guid: eb196ce8d8c471d4792ac34a5d939cc0, type: 3}
+  - tamer: {fileID: 8300000, guid: 6dc3ffab46f20ce44a947b09360e7958, type: 3}
+  - Player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
