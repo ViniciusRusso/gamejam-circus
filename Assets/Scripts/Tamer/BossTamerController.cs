@@ -6,6 +6,7 @@ public class BossTamerController : MonoBehaviour
 {
     public GameObject mainFlare, fireRing;
 
+    public GameObject ExitDoor;
 
     public Animator animator, tigerAnimator;
 
@@ -62,6 +63,7 @@ public class BossTamerController : MonoBehaviour
         // If fire ring is passed, trigger
 
         Debug.Log("Win");
+        ExitDoor.SetActive(true);
     }
 
 }

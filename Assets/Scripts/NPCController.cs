@@ -8,6 +8,7 @@ public class NPCController : MonoBehaviour
     public Sprite spriteFeliz;
     public Sprite spriteTriste;
     public int npc;   
+    public GameObject PortaTenda;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class NPCController : MonoBehaviour
         }
         else{
             spriteRenderer.sprite = spriteFeliz;
+            PortaTenda.SetActive(false);
         }
     }
 
