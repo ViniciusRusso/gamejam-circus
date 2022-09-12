@@ -23,13 +23,15 @@ public class MapController : MonoBehaviour
     void Start()
     {
         Player.transform.position = PlayerPosition[PlayerPrefs.GetInt("Level")];
-        Player.GetComponent<TrailRenderer>().enabled = true;
+        
         if(PlayerPrefs.GetInt("Level") >= 1)
         {
+            Player.GetComponent<TrailRenderer>().enabled = true;
             Capa.SetActive(true);
         }
         else
         {
+            Player.GetComponent<TrailRenderer>().enabled = false;
             Capa.SetActive(false);
         }
 

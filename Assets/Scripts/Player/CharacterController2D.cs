@@ -139,7 +139,7 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.velocity = Vector2.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
 		}
-		else if (!m_Grounded && jump && canDoubleJump && puController.cape.activeSelf) //Double Jump
+		else if (!m_Grounded && jump && canDoubleJump && GetComponent<TrailRenderer>().enabled) //Double Jump
 		{
 			canDoubleJump = false;
 			Vector2 targetVelocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpForce);

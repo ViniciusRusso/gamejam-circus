@@ -22,10 +22,12 @@ public class PowerUpController : MonoBehaviour
     {
 
         if (haveCape){
-            cape.SetActive(true);
+            controller.gameObject.GetComponent<TrailRenderer>().enabled = true;
+            //cape.SetActive(true);
         }
         else {
-            cape.SetActive(false);
+            controller.gameObject.GetComponent<TrailRenderer>().enabled = false;
+            //cape.SetActive(false);
         }
 
         if (haveBalloon){
