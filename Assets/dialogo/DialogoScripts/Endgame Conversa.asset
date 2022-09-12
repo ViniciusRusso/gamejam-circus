@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cbd42437c12d24dbfdd49c4a0c4aaa, type: 3}
+  m_Name: Endgame Conversa
+  m_EditorClassIdentifier: 
+  Desbloqueado: 1
+  Finalizado: 0
+  ReUsar: 0
+  dialogo:
+  - personagem: {fileID: 11400000, guid: a34b30d950097b040b92261df6563b2c, type: 2}
+    som: {fileID: 0}
+    dialogo: They did it, we are free!
+  - personagem: {fileID: 11400000, guid: 15efcbf3a93968045813fd6463604fa0, type: 2}
+    som: {fileID: 0}
+    dialogo: Not all of usa. And we still have our debt to  pay.
+  - personagem: {fileID: 11400000, guid: efd266adeb64afb449e25ffa7fc1f387, type: 2}
+    som: {fileID: 0}
+    dialogo: So what now?
+  - personagem: {fileID: 11400000, guid: 980a1655825ee2d4a9a12ef4a7b37e53, type: 2}
+    som: {fileID: 0}
+    dialogo: We try again. For us and for him.
+  pergunta: {fileID: 0}
