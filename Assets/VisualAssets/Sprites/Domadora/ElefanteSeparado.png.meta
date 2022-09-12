@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 854e8fdc3dd37b04985ca907bfa4c1b4
+guid: 25ee2d67f18d2d2428b08bf6ca23618c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ElefanteSeparado_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 61
+        width: 87
+        height: 62
+      alignment: 9
+      pivot: {x: 0.9410436, y: 0.695083}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24c7c1f5a8f15e4f96edd2a7d3be826
+      internalID: -634645819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElefanteSeparado_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 121
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041ca30171697a4428e69379170140a9
+      internalID: 866706596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +180,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ElefanteSeparado_0: -634645819
+      ElefanteSeparado_1: 866706596
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

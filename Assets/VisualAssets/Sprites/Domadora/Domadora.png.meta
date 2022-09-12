@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 854e8fdc3dd37b04985ca907bfa4c1b4
+guid: 1d8a76edb3f39ad48a9bf30daf445d0d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Domadora_0
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 749
+        width: 152
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e8081122cfd4f42bd58d152f13c2b9
+      internalID: 434754568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Domadora_1
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 831
+        width: 187
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d397e27575f921b4580269fd2c177340
+      internalID: 864351765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Domadora_2
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 832
+        width: 105
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c75b1262e4252f4f9a6e601a52fa5c6
+      internalID: 1009687464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Domadora_3
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 605
+        width: 47
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf652eec3a4037b47ba303df185c30da
+      internalID: -44339554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Domadora_4
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 605
+        width: 26
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f80afb04771ffe49b1affa8ba46be74
+      internalID: -72215757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +243,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Domadora_1: 864351765
+      Domadora_4: -72215757
+      Domadora_0: 434754568
+      Domadora_2: 1009687464
+      Domadora_3: -44339554
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
