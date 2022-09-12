@@ -22,8 +22,8 @@ public class BossTamerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         //StartPhase 1    
+        //StartCoroutine(Phase1());
         StartPhase1();
     }
 
@@ -38,7 +38,13 @@ public class BossTamerController : MonoBehaviour
     private void StartPhase1()
     {
         animator.SetBool("Phase 1 Start", true);
-        tigerAnimator.SetBool("Phase 1 Start", true);    }
+        tigerAnimator.SetBool("Phase 1 Start", true);    
+    }
+
+    private IEnumerator Phase1(){
+        yield return new WaitForSeconds(2f);
+        StartPhase1();
+    }
 
     public void StartPhase2()
     {
