@@ -29,14 +29,14 @@ public class MapController : MonoBehaviour
         
         if(PlayerPrefs.GetInt("Level") >= 1)
         {
-            Wall.SetActive(false);
+            
             Player.GetComponent<PowerUpController>().haveCape = true;
             //Player.GetComponent<TrailRenderer>().enabled = true;
             //Capa.SetActive(true);
         }
         else
         {
-            Wall.SetActive(true);
+            
             Player.GetComponent<PowerUpController>().haveCape = false;
             //Player.GetComponent<TrailRenderer>().enabled = false;
             //Capa.SetActive(false);
@@ -44,17 +44,22 @@ public class MapController : MonoBehaviour
 
         if(PlayerPrefs.GetInt("Level") >= 2)
         {
+            Wall.SetActive(false);
             Player.GetComponent<PowerUpController>().haveBalloon = true;
             //Bolha.SetActive(true);
         }
         else
         {
+            Wall.SetActive(true);
             Player.GetComponent<PowerUpController>().haveBalloon = false;
             //Bolha.SetActive(false);
         }
 
         if(PlayerPrefs.GetInt("Level") >= 3){
             EndText.SetActive(true);
+        }
+        else{
+            EndText.SetActive(false);
         }
     }
 

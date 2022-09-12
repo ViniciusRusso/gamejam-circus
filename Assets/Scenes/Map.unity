@@ -2827,6 +2827,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &675053365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6421009446095370431, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &798105248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,6 +2989,11 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 475996708}
   m_ConfineScreenEdges: 1
   m_Damping: 0.37
+--- !u!1 &873281892 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3363779225061224711, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &873281893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6642980203684148406, guid: 1138f153b668f8446bb558c758807a13, type: 3}
@@ -4584,6 +4594,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1944740168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 760972754110604936, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064150402
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,11 +4893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5b0e581003bd74bb03350f47677d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Capa: {fileID: 0}
-  Bolha: {fileID: 0}
+  Player: {fileID: 873281892}
+  Capa: {fileID: 675053365}
+  Bolha: {fileID: 1944740168}
   Wall: {fileID: 178550305}
-  EndText: {fileID: 0}
+  EndText: {fileID: 348349651}
   PlayerPosition:
   - {x: -8.42, y: -4.485}
   - {x: -0.86, y: -4.485}
