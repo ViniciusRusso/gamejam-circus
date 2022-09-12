@@ -33,11 +33,17 @@ public class ColliderController : MonoBehaviour
             }
             else if(ColliderName == "palhaco")
             {
-                PlayerPrefs.SetInt("Level", 3);
+                if(PlayerPrefs.GetInt("Level") == 1)
+                {
+                    SceneManager.LoadScene("Boss2");
+                }
             }
             else if(ColliderName == "domador")
             {
-                PlayerPrefs.SetInt("Level", 4);
+                if(PlayerPrefs.GetInt("Level") == 2)
+                {
+                    SceneManager.LoadScene("Boss3");
+                }
             }
         }
     }

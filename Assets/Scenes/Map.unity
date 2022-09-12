@@ -166,13 +166,8 @@ Transform:
   m_Children:
   - {fileID: 312531317}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &182519945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6821294181416158899, guid: 1138f153b668f8446bb558c758807a13, type: 3}
-  m_PrefabInstance: {fileID: 476087302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &208034495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,11 +1785,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!1 &421879259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6821294181972426212, guid: 1138f153b668f8446bb558c758807a13, type: 3}
-  m_PrefabInstance: {fileID: 476087302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &433774777
 GameObject:
   m_ObjectHideFlags: 0
@@ -2153,6 +2143,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+--- !u!1 &476087303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1001164152147365145, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &476087304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3369313088417398138, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &476087305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4408654652588454217, guid: 1138f153b668f8446bb558c758807a13, type: 3}
+  m_PrefabInstance: {fileID: 476087302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,7 +2241,7 @@ Transform:
   m_Children:
   - {fileID: 208034499}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798105248
 GameObject:
@@ -2431,7 +2436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c865ab0a65cac76429bf8ac2e5bf6456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 922409345}
+  Player: {fileID: 0}
   ColliderName: mago
 --- !u!50 &890166820
 Rigidbody2D:
@@ -2454,11 +2459,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &922409345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6821294180798263847, guid: 1138f153b668f8446bb558c758807a13, type: 3}
-  m_PrefabInstance: {fileID: 476087302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955834877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,7 +2859,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355330100
 GameObject:
@@ -2933,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c865ab0a65cac76429bf8ac2e5bf6456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 922409345}
+  Player: {fileID: 0}
   ColliderName: poco
 --- !u!50 &1355330104
 Rigidbody2D:
@@ -2967,6 +2967,7 @@ GameObject:
   - component: {fileID: 1512191437}
   - component: {fileID: 1512191439}
   - component: {fileID: 1512191440}
+  - component: {fileID: 1512191441}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -3067,6 +3068,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1512191441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512191436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c865ab0a65cac76429bf8ac2e5bf6456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  ColliderName: palhaco
 --- !u!1001 &1597097065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3681,7 +3696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c865ab0a65cac76429bf8ac2e5bf6456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 922409345}
+  Player: {fileID: 0}
   ColliderName: domador
 --- !u!1 &2108339995
 GameObject:
@@ -3713,9 +3728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5b0e581003bd74bb03350f47677d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 922409345}
-  Capa: {fileID: 182519945}
-  Bolha: {fileID: 421879259}
+  Player: {fileID: 476087305}
+  Capa: {fileID: 476087304}
+  Bolha: {fileID: 476087303}
   PlayerPosition:
   - {x: -8.42, y: -4.485}
   - {x: -0.86, y: -4.485}
