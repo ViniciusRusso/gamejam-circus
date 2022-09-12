@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class MapController : MonoBehaviour
 {
     public GameObject Player;
     public GameObject Capa;
     public GameObject Bolha;
     public GameObject Wall;
-    public GameObject EndText;
+    //public GameObject EndText;
     public Vector2[] PlayerPosition = 
     {
         new Vector2(-8.42f, -4.485f),
@@ -20,7 +22,7 @@ public class MapController : MonoBehaviour
     void Awake()
     {
         Player.GetComponent<TrailRenderer>().enabled = false;
-        EndText.SetActive(false);
+        //EndText.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -56,10 +58,11 @@ public class MapController : MonoBehaviour
         }
 
         if(PlayerPrefs.GetInt("Level") >= 3){
-            EndText.SetActive(true);
+            //EndText.SetActive(true);
+            SceneManager.LoadScene("Endgame");
         }
         else{
-            EndText.SetActive(false);
+            //EndText.SetActive(false);
         }
     }
 
