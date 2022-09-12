@@ -20,7 +20,29 @@ public class PowerUpController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(CheckPowerUps());
 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public IEnumerator BalloonCooldown()
+    {
+        for (int i = balloonCD; i >= 0; i--){
+            yield return new WaitForSeconds(1f);
+            //text.text = i.ToString();
+        }
+        
+        balloonUp=true;
+        balloon.SetActive(true);
+    }
+
+    private IEnumerator CheckPowerUps(){
+        yield return new WaitForSeconds(0.1f);
         if (haveCape){
             controller.gameObject.GetComponent<TrailRenderer>().enabled = true;
             //cape.SetActive(true);
@@ -40,22 +62,5 @@ public class PowerUpController : MonoBehaviour
             controller.canBeDamaged = true;
             balloon.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public IEnumerator BalloonCooldown()
-    {
-        for (int i = balloonCD; i >= 0; i--){
-            yield return new WaitForSeconds(1f);
-            //text.text = i.ToString();
-        }
-        
-        balloonUp=true;
-        balloon.SetActive(true);
     }
 }
