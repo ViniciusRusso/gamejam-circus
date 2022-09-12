@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class BossTamerController : MonoBehaviour
 {
-    public GameObject monkey, tiger, elephant, mainFlare, fireRing;
-    public Vector3[] monkeyPosition = new Vector3[4];
-    public Vector3 tigerPosition;
-    public Vector3[] elephantPosition = new Vector3[2];
-    public Vector3[] platformPosition = new Vector3[2];
+    public GameObject mainFlare, fireRing;
+
 
     public Animator animator, tigerAnimator;
 
-    private Quaternion right =  Quaternion.Euler(0f, 180f, 0f);
-    private Quaternion left =  Quaternion.Euler(0f, 0f, 0f);
+    [HideInInspector] public int animalsDefeated;
+    [HideInInspector] public int flareCount;
 
-    public int animalsDefeated;
-    
     void Awake(){
         animalsDefeated = 0;
+        flareCount = 0;
         mainFlare.SetActive(true);
         fireRing.SetActive(false);
     }
@@ -34,7 +30,7 @@ public class BossTamerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animalsDefeated == 7){
+        if (flareCount == 7){
             CreateFireRing();
         }
     }
@@ -48,20 +44,18 @@ public class BossTamerController : MonoBehaviour
     {
         //Platform coming from sideways animation
         animator.SetBool("Phase 2 Start", true);
-        //Instantiate 2 monkeys and 2 elephants
-        Instantiate(monkey, monkeyPosition[2], right);
-        Instantiate(monkey, monkeyPosition[3], left);
-        Instantiate(elephant, elephantPosition[0], left);
-        Instantiate(elephant, elephantPosition[1], right);
     }
 
     private void CreateFireRing(){
+        mainFlare.SetActive(false);
         fireRing.SetActive(true);
     }
 
     public void BossDefeated()
     {
         // If fire ring is passed, trigger
+
+        Debug.Log("Win");
     }
 
 }
