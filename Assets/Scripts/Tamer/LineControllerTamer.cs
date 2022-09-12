@@ -7,7 +7,7 @@ public class LineControllerTamer : MonoBehaviour
     public float height;
     public Transform[] animals;
     private LineRenderer[] lr = new LineRenderer[7];
-    public GameObject linePrefab;
+    public GameObject linePrefab, flare;
     public Animator animator;
 
     [HideInInspector] public List<LineRenderer> lines;
@@ -43,15 +43,18 @@ public class LineControllerTamer : MonoBehaviour
     }
 
     public void Damage(GameObject parent, LineRenderer line){
+        Instantiate(flare, parent.GetComponent<Transform>().position, Quaternion.identity);
+
+        if (parent.name == "Tigre"){
+            btc.StartPhase2();
+        }
+        
         line.gameObject.SetActive(false);
         parent.SetActive(false);
 
         //Death Animation
         btc.animalsDefeated++;
 
-        if (parent.name == "Tigre"){
-            btc.StartPhase2();
-        }
     }
 
 }
