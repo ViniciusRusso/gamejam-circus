@@ -50,7 +50,7 @@ public class PowerUpController : MonoBehaviour
     {
         for (int i = balloonCD; i >= 0; i--){
             yield return new WaitForSeconds(1f);
-            text.text = i.ToString();
+            //text.text = i.ToString();
         }
         
         balloonUp=true;
