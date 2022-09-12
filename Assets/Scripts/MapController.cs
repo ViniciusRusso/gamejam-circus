@@ -8,6 +8,7 @@ public class MapController : MonoBehaviour
     public GameObject Capa;
     public GameObject Bolha;
     public GameObject Wall;
+    public GameObject EndText;
     public Vector2[] PlayerPosition = 
     {
         new Vector2(-8.42f, -4.485f),
@@ -19,6 +20,7 @@ public class MapController : MonoBehaviour
     void Awake()
     {
         Player.GetComponent<TrailRenderer>().enabled = false;
+        EndText.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
@@ -49,6 +51,10 @@ public class MapController : MonoBehaviour
         {
             Player.GetComponent<PowerUpController>().haveBalloon = false;
             //Bolha.SetActive(false);
+        }
+
+        if(PlayerPrefs.GetInt("Level") >= 3){
+            EndText.SetActive(true);
         }
     }
 
