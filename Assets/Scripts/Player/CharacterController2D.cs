@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class CharacterController2D : MonoBehaviour
@@ -195,6 +196,7 @@ public class CharacterController2D : MonoBehaviour
 		else if(canBeDamaged) {
 			//Death
 			Debug.Log("Dead");
+			SceneManager.LoadScene("Boss" + (PlayerPrefs.GetInt("Level") + 1));
 		}
 		
 	}
