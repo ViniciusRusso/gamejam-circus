@@ -3289,7 +3289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1032284091}
   - component: {fileID: 1032284090}
-  - component: {fileID: 1032284089}
   - component: {fileID: 1032284088}
   - component: {fileID: 1032284087}
   m_Layer: 0
@@ -3368,25 +3367,6 @@ MonoBehaviour:
   spriteTriste: {fileID: 0}
   npc: 2
   PortaTenda: {fileID: 1512191436}
---- !u!114 &1032284089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032284086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd159b042cd4c324abbdb6c92059101e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConversasDisponiveis:
-  - {fileID: 11400000, guid: 856dd20ae50d8594cb748e5e33fb89fe, type: 2}
-  indexDeConversas: 0
-  dialogoLocalIn: 0
-  ConversasFinalizadas: []
-  conversou: 0
-  dialogoUI: {fileID: 0}
 --- !u!61 &1032284090
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3955,7 +3935,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673920305}
   - component: {fileID: 1673920304}
-  - component: {fileID: 1673920303}
   - component: {fileID: 1673920302}
   - component: {fileID: 1673920301}
   m_Layer: 0
@@ -4034,25 +4013,6 @@ MonoBehaviour:
   spriteTriste: {fileID: 0}
   npc: 3
   PortaTenda: {fileID: 2081146862}
---- !u!114 &1673920303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673920300}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd159b042cd4c324abbdb6c92059101e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConversasDisponiveis:
-  - {fileID: 11400000, guid: 856dd20ae50d8594cb748e5e33fb89fe, type: 2}
-  indexDeConversas: 0
-  dialogoLocalIn: 0
-  ConversasFinalizadas: []
-  conversou: 0
-  dialogoUI: {fileID: 0}
 --- !u!61 &1673920304
 BoxCollider2D:
   m_ObjectHideFlags: 0
