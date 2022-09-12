@@ -21,6 +21,12 @@ public class PowerUpController : MonoBehaviour
     void Start()
     {
 
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (haveCape){
             controller.gameObject.GetComponent<TrailRenderer>().enabled = true;
             //cape.SetActive(true);
@@ -40,12 +46,6 @@ public class PowerUpController : MonoBehaviour
             controller.canBeDamaged = true;
             balloon.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public IEnumerator BalloonCooldown()

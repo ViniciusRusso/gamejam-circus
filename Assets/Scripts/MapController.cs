@@ -7,12 +7,13 @@ public class MapController : MonoBehaviour
     public GameObject Player;
     public GameObject Capa;
     public GameObject Bolha;
+    public GameObject Wall;
     public Vector2[] PlayerPosition = 
     {
-    new Vector2(-8.42f, -4.485f),
-    new Vector2(-0.86f, -4.485f),
-    new Vector2(-6.03f, 0.52f),
-    new Vector2(3.91f, 2.53f),
+        new Vector2(-8.42f, -4.485f),
+        new Vector2(-0.86f, -4.485f),
+        new Vector2(-6.03f, 0.52f),
+        new Vector2(3.91f, 2.53f),
     };
 
     void Awake()
@@ -26,22 +27,28 @@ public class MapController : MonoBehaviour
         
         if(PlayerPrefs.GetInt("Level") >= 1)
         {
-            Player.GetComponent<TrailRenderer>().enabled = true;
-            Capa.SetActive(true);
+            Wall.SetActive(false);
+            Player.GetComponent<PowerUpController>().haveCape = true;
+            //Player.GetComponent<TrailRenderer>().enabled = true;
+            //Capa.SetActive(true);
         }
         else
         {
-            Player.GetComponent<TrailRenderer>().enabled = false;
-            Capa.SetActive(false);
+            Wall.SetActive(true);
+            Player.GetComponent<PowerUpController>().haveCape = false;
+            //Player.GetComponent<TrailRenderer>().enabled = false;
+            //Capa.SetActive(false);
         }
 
         if(PlayerPrefs.GetInt("Level") >= 2)
         {
-            Bolha.SetActive(true);
+            Player.GetComponent<PowerUpController>().haveBalloon = true;
+            //Bolha.SetActive(true);
         }
         else
         {
-            Bolha.SetActive(false);
+            Player.GetComponent<PowerUpController>().haveBalloon = false;
+            //Bolha.SetActive(false);
         }
     }
 
