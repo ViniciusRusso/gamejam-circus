@@ -1864,6 +1864,7 @@ MonoBehaviour:
   linePrefab: {fileID: 2554648163098010598, guid: a4df21a90e2f92f418f94cfda6851c05, type: 3}
   animator: {fileID: 1190078479}
   lines: []
+  ExitDoor: {fileID: 8112328673164547374}
 --- !u!4 &1146645714
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,6 +2604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 8112328673520187523, guid: 99a91e46a23daf64d9b10eb6fd9e4dc9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8112328673520187549, guid: 99a91e46a23daf64d9b10eb6fd9e4dc9, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2649,3 +2654,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99a91e46a23daf64d9b10eb6fd9e4dc9, type: 3}
+--- !u!1 &8112328673164547374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8112328673520187523, guid: 99a91e46a23daf64d9b10eb6fd9e4dc9, type: 3}
+  m_PrefabInstance: {fileID: 8112328673164547373}
+  m_PrefabAsset: {fileID: 0}

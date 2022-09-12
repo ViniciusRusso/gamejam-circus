@@ -33,7 +33,7 @@ public class CharacterController2D : MonoBehaviour
 	
 
 	[HideInInspector] public int health;
-	[HideInInspector] public bool canBeDamaged = true;
+	public bool canBeDamaged = true;
 	[HideInInspector] public PowerUpController puController;
 
 	[Header("Events")]

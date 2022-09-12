@@ -14,6 +14,8 @@ public class LineController : MonoBehaviour
     LineRenderer lr3; //Cards
 
     [HideInInspector] public List<LineRenderer> lines;
+
+    public GameObject ExitDoor;
     
 
     private void Awake()
@@ -70,6 +72,9 @@ public class LineController : MonoBehaviour
                 obj[2].gameObject.SetActive(true);
                 obj[1].gameObject.SetActive(true);
                 //obj[0].position = pos;
+
+                ExitDoor.SetActive(true);
+
                 break;
             case 1:      
                 //pos = lr2.GetPosition(1);

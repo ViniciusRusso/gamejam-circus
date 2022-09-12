@@ -8,6 +8,7 @@ public class ClownAnimations : MonoBehaviour
     public Animator animator;
     public GameObject ballPrefab;
     private GameObject[] balloons;
+    public GameObject ExitDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,7 @@ public class ClownAnimations : MonoBehaviour
     {
         Debug.Log("HEIR OF FIRE DESTROYED");
         Destroy(gameObject);
+        ExitDoor.SetActive(true);
     }
     
         
