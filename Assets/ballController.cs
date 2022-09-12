@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ballController : MonoBehaviour
-{
+{ 
     public float Speed = 3f;
     // Start is called before the first frame update
     void Start()
@@ -21,13 +21,7 @@ public class ballController : MonoBehaviour
     {
         if (other.tag != "Enemy" && other.tag != "Rope")
         {
-            Debug.Log(other.name);
             Destroy(gameObject);
-        }
-        if (other.tag == "Rope")
-        {
-            Destroy(other.gameObject.transform.parent.gameObject);
-        }
-        
+        }     
     }
 }

@@ -7,6 +7,8 @@ public class ClownAnimations : MonoBehaviour
     private int lastMode;
     public Animator animator;
     public GameObject ballPrefab;
+    private GameObject[] balloons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,11 @@ public class ClownAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        balloons = GameObject.FindGameObjectsWithTag("Balloon");
+        if (balloons.Length == 0)
+        {
+            endFight();
+        }
 
     }
 
@@ -60,6 +67,12 @@ public class ClownAnimations : MonoBehaviour
         }
         Instantiate(ballPrefab, new Vector2(xSpawn, ySpawn), Quaternion.identity);
         
+    }
+
+    public void endFight()
+    {
+        Debug.Log("HEIR OF FIRE DESTROYED");
+        Destroy(gameObject);
     }
     
         
