@@ -19,7 +19,15 @@ public class ballController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Ouch!");
-        Destroy(gameObject);
+        if (other.tag != "Enemy" && other.tag != "Rope")
+        {
+            Debug.Log(other.name);
+            Destroy(gameObject);
+        }
+        if (other.tag == "Rope")
+        {
+            Destroy(other.gameObject.transform.parent.gameObject);
+        }
+        
     }
 }

@@ -6,6 +6,7 @@ public class ClownAnimations : MonoBehaviour
 {
     private int lastMode;
     public Animator animator;
+    public GameObject ballPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class ClownAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void StartTimerCoroutine(float time)
@@ -41,10 +42,28 @@ public class ClownAnimations : MonoBehaviour
         return random;
     }
 
-    public void throwBalls(Vector2 startPos)
+    public void throwBalls(float posy)
     {
-
+        float ySpawn = 0f;
+        float xSpawn = 7.315643f;
+        if (posy == 0)
+        {
+            ySpawn = 1.918263f;
+        }
+        else if (posy == 1)
+        {
+            ySpawn = -0.3923749f;
+        }
+        else
+        {
+            ySpawn = -3.537f;
+        }
+        Instantiate(ballPrefab, new Vector2(xSpawn, ySpawn), Quaternion.identity);
+        
     }
-
-
+    
+        
 }
+
+
+
