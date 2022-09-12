@@ -23,7 +23,7 @@ public class DoorController : MonoBehaviour
         if (other.gameObject.CompareTag("Player")) {
             int proxLvl = PlayerPrefs.GetInt("Level") + 1;
             PlayerPrefs.SetInt("Level", proxLvl);
-            // stopMusic();
+            stopMusic();
             SceneManager.LoadScene("Map");
         }
     }
@@ -33,6 +33,6 @@ public class DoorController : MonoBehaviour
         musicObj = GameObject.Find("AudioSource");
         audio = musicObj.GetComponent<AudioSource>();
         // Debug.Log(musicObj.GetComponent<AudioSource>().clip);
-        GetComponent<AudioSource>().Stop();
+        audio.Stop();
     }
 }
